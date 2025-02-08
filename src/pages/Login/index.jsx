@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
 import { decodeToken } from "react-jwt";
-import Star from '../../assets/logo-star.png'
+import Logo from '../../../public/assets/images/Logo-VIP.png'
 import HideIcon from '../../assets/icons/Hide.svg'
 import EyeIcon from '../../assets/icons/Eye.svg'
 import { signIn } from '../../features/user/userSlice'
@@ -62,10 +62,10 @@ const Login = () => {
                     welcome to
                 </h3>
                 <div className="w-3/5">
-                    <img src={Star} alt="Logo" className="w-full h-full object-contain" />
+                    <img src={Logo} alt="Logo" className="w-full h-full object-contain" />
                 </div>
-                <p className="text-xs md:text-sm font-thin italic">
-                    Your journey to success begins with <b>STAR GROUP</b>
+                <p className="text-xl md:text-2xl tracking-widest font-bold">
+                    Driving to Excellence
                 </p>
             </div>
             {/* form */}
@@ -113,7 +113,7 @@ const Login = () => {
                 </form>
             </div>
             <footer className="p-1 mt-auto w-full text-center text-xxs md:text-xs font-light italic text-gray-500 tracking-wider">
-                Copyright @ Star Group
+                Copyright @ <span className='font-semibold text-xs md:text-sm'>BIT</span>
             </footer>
         </section>
     )

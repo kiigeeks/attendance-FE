@@ -1,8 +1,7 @@
 
 import { useSelector } from "react-redux"
 import { selectUserData } from '../../features/user/userSlice'
-// import BinarLogo from '../../assets/logo-binar.png'
-import Star from '../../assets/logo-star.png'
+import Logo from '../../../public/assets/images/Logo-VIP.png'
 import UserIcon from '../../assets/icons/User.svg'
 
 const CardProfile = () => {
@@ -31,7 +30,7 @@ const CardProfile = () => {
             </div>
             
             <div className="absolute top-0 right-0 w-20 bg-white py-2 px-5 rounded-se-3xl rounded-es-3xl">
-                <img src={Star} loading="eager" alt="star" className="w-full h-full object-contain object-top" />
+                <img src={Logo} loading="eager" alt="Logo" className="w-full h-full object-contain object-top" />
             </div>
             
             <div className="flex h-full py-5 justify-between gap-10 items-start">
