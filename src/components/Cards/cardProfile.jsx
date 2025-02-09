@@ -1,7 +1,7 @@
 
 import { useSelector } from "react-redux"
 import { selectUserData } from '../../features/user/userSlice'
-import Logo from '../../../public/assets/images/Logo-VIP.png'
+import Logo from '../../assets/Logo-VIP.png'
 import UserIcon from '../../assets/icons/User.svg'
 
 const CardProfile = () => {

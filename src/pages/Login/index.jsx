@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { toast } from 'react-toastify';
 import { decodeToken } from "react-jwt";
-import Logo from '../../../public/assets/images/Logo-VIP.png'
+import Logo from '../../assets/Logo-VIP.png'
 import HideIcon from '../../assets/icons/Hide.svg'
 import EyeIcon from '../../assets/icons/Eye.svg'
 import { signIn } from '../../features/user/userSlice'

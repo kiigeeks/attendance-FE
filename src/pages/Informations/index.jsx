@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import { getInformations } from '../../utilities/sendRequest';
 import Spinner from '../../components/Loader/Spinner';
-import StarYelYel from '../../../public/assets/videos/stargroup.mp4';
 import { useLocation } from 'react-router-dom';
 
 const Informations = () => {
@@ -61,19 +60,7 @@ const Informations = () => {
                                 </h3>
                                 <div className="mt-3 text-xxs md:text-xs font-normal text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
                                 <hr className='h-[2px] bg-grayPrimary/50 w-full rounded-full my-3' />
-                                {data.type === "company"
-                                    ? 
-                                        <div className="w-full h-full bg-red-100 flex justify-center items-center">
-                                            <video
-                                                className="w-full h-full object-contain"
-                                                controls
-                                                src={StarYelYel} // Ganti dengan path file .mp4 Anda
-                                            >
-                                                Your browser does not support the video tag.
-                                            </video>
-                                        </div>
-                                    : ""
-                                }
+                               
                             </div>
                         ))}
                     </div>

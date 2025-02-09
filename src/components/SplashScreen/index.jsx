@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Logo from '../../../public/assets/images/Logo-VIP.png'
+import Logo from '../../assets/Logo-VIP.png'
 
 const SplashScreen = () => {
     const [effect, setEffect] = useState("")
