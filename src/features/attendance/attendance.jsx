@@ -220,7 +220,7 @@ const AttendanceModal = () => {
                         <button type='submit'
                                 disabled={!isReady}
                                 className={`flex flex-row justify-center items-center gap-2 w-full ${isReady ? 'bg-bluePrimary text-white cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full py-3`}>
-                            <span>Check In</span>
+                            <span>Absen Masuk</span>
                             <MdLogin className='w-5 h-5'/>
                         </button>
 

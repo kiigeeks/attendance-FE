@@ -1,25 +1,25 @@
 import CardProfile from '../../components/Cards/cardProfile'
 // import CardFee from '../../components/Cards/cardFee'
 import CardGift from '../../components/Cards/cardGift'
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import CardBirthday from '../../components/Cards/cardBirthday'
 import CardPoint from '../../components/Cards/cardPoint'
 import CardAttendance from '../../components/Cards/cardAttendance'
 import CardAbsent from '../../components/Cards/cardAbsent'
-import { useSelector } from 'react-redux'
-import { selectUserData } from '../../features/user/userSlice'
-import { useEffect, useState } from 'react'
-import { calculateDistance, checkHireDate } from '../../utilities/helpers'
-import CardAnnual from '../../components/Cards/cardAnnual'
+// import { useSelector } from 'react-redux'
+// import { selectUserData } from '../../features/user/userSlice'
+import { useEffect } from 'react'
+// import { calculateDistance, checkHireDate } from '../../utilities/helpers'
+// import CardAnnual from '../../components/Cards/cardAnnual'
 
 const Dashboard = () => {
-    const userData = useSelector(selectUserData);
+    // const userData = useSelector(selectUserData);
 	// console.log(userData);
 	
     // const [isWithinTime, setIsWithinTime] = useState(false);
     // const [isWithinRadius, setIsWithinRadius] = useState(false);
     // const radius = 500; // meter
-	const isMoreThanOneYear = checkHireDate(userData?.Biodata?.hire_date, userData?.is_permanent);
+	// const isMoreThanOneYear = checkHireDate(userData?.Biodata?.hire_date, userData?.is_permanent);
 	
 	useEffect(() => {
         // Ambil jam saat ini
@@ -128,10 +128,10 @@ const Dashboard = () => {
 			<CardGift />
 
 			{/* cuti */}
-			{isMoreThanOneYear
+			{/* {isMoreThanOneYear
 				? <CardAnnual />
 				: ""
-			}
+			} */}
 			
 
 			{/* Birthday */}

@@ -41,7 +41,7 @@ const CardAttendance = () => {
                             {statusAttendanceDetail === "IN"
                                 ?
                                     <div onClick={(e) => handleClockOut(e)} className='rounded-3xl px-5 py-2 border-2 border-redPrimary flex justify-center items-center gap-2 w-fit cursor-pointer'>
-                                        <span className='text-redPrimary font-poppins text-sm'>Clock Out</span>
+                                        <span className='text-redPrimary font-poppins text-sm'>Absen Pulang</span>
                                         <MdLogout className="w-5 h-5 text-redPrimary"/>
                                     </div>
                                 :
@@ -63,7 +63,7 @@ const CardAttendance = () => {
                             </>
                         :
                             <div onClick={(e) => handleAttendance(e)} className='rounded-3xl px-5 py-2 border-2 border-bluePrimary flex justify-center items-center gap-2 w-fit cursor-pointer'>
-                                <span className='text-bluePrimary font-poppins text-sm'>Clock In</span>
+                                <span className='text-bluePrimary font-poppins text-sm'>Absen Masuk</span>
                                 <MdLogin className="w-5 h-5 text-bluePrimary"/>
                             </div>
                     }

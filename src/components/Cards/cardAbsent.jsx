@@ -10,20 +10,20 @@ const CardAbsent = () => {
                 </div>
                 <div className="flex justify-start items-center flex-1 flex-wrap gap-2 w-full font-poppins text-xs md:text-sm px-3">
                     <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
+                        Izin
+                    </div>
+                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
+                        Sakit
+                    </div>
+                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Lembur
                     </div>
                     <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Luar Kota
                     </div>
-                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
-                        Izin
-                    </div>
-                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
+                    {/* <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Cuti
-                    </div>
-                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
-                        Sakit
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="flex flex-initial justify-center items-center">

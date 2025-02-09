@@ -198,7 +198,7 @@ const ClockOutModal = () => {
                             <button type='submit'
                                     disabled={!isReady}
                                     className={`flex flex-row justify-center items-center gap-2 w-fit ${isReady ? 'border border-redPrimary text-redPrimary cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full px-5 py-2`}>
-                                <span>Check Out</span>
+                                <span>Absen Pulang</span>
                                 <MdLogout className='w-5 h-5'/>
                             </button>
                         </div>
