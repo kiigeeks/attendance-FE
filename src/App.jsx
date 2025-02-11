@@ -78,7 +78,6 @@ function App() {
 	const fetchBiodata = async (nip) => {
         getBiodata(nip).then((res) => {
 			const data = res.payload
-			
 			dispatch(storeData(data))
 			
 			if(data.Attendances.length > 0) {

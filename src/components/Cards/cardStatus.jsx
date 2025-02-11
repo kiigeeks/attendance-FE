@@ -8,7 +8,7 @@ const CardStatus = () => {
         <div className="bg-white w-full rounded-3xl flex justify-between py-4 px-6 shadow-md">
             <div className="flex flex-col gap-3 tracking-wider">
                 <div className="flex flex-col">
-                    <span className="text-xs md:text-sm font-light italic">Divisi</span>
+                    <span className="text-xs md:text-sm font-light italic">Office</span>
                     <h4 className="text-xxs md:text-sm font-semibold">{userData.Biodata?.Office?.name}</h4>
                 </div>
                 <div className="flex flex-col">
@@ -18,8 +18,15 @@ const CardStatus = () => {
             </div>
             <div className="flex flex-col gap-3 tracking-wider">
                 <div className="flex flex-col">
-                    <span className="text-xs md:text-sm font-light italic">Eselon</span>
-                    <h4 className="text-xxs md:text-sm font-semibold">{userData.Biodata?.Echelon?.title}</h4>
+                    <span className="text-xs md:text-sm font-light italic">Status</span>
+                    <h4 className="text-xxs md:text-sm font-semibold">
+                        {userData.is_permanent
+                            ?
+                                "Karyawan Tetap"
+                            :
+                                userData.Employment_Periode?.Employment_Status?.name
+                        }
+                    </h4>
                 </div>
                 <div className="flex flex-col">
                     <span className="text-xs md:text-sm font-light italic">Tanggal Masuk</span>

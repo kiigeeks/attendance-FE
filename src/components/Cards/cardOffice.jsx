@@ -9,6 +9,12 @@ const CardOffice = () => {
         <div className="bg-white w-full rounded-3xl flex justify-between py-4 px-6 shadow-md">
             <div className="flex flex-col gap-3 tracking-wider">
                 <div className="flex flex-col">
+                    <span className="text-xs md:text-sm font-light italic">Jabatan</span>
+                    <h4 className="text-sm md:text-base font-medium">
+                        {userData.Positions.map((pos) => pos.title).join(", ")}
+                    </h4>
+                </div>
+                <div className="flex flex-col">
                     <span className="text-xs md:text-sm font-light italic">Status Karyawan</span>
                     <h4 className="text-sm md:text-base font-medium">
                         {userData.is_permanent
@@ -30,7 +36,7 @@ const CardOffice = () => {
                     : ""
                 }
                 <div className="flex flex-col">
-                    <span className="text-xs md:text-sm font-light italic">Divisi</span>
+                    <span className="text-xs md:text-sm font-light italic">Office</span>
                     <h4 className="text-sm md:text-base font-medium">{userData.Biodata?.Office?.name}</h4>
                 </div>
                 {[...(userData?.Biodata.Office.Office_Addresses || [])].sort((a, b) => b.Address.is_main - a.Address.is_main).map((data, i) => (

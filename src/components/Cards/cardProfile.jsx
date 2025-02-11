@@ -33,15 +33,21 @@ const CardProfile = () => {
                 <img src={Logo} loading="eager" alt="Logo" className="w-full h-full object-contain object-top" />
             </div>
             
-            <div className="flex h-full py-5 justify-between gap-10 items-start">
-                <div className="flex flex-col gap-2 text-white tracking-wider">
+            <div className="flex w-full h-full py-5 justify-between gap-10 items-start">
+                <div className="flex w-full flex-col gap-2 text-white tracking-wider">
                     <div className="flex flex-col">
-                        <span className="text-xs md:text-sm font-light">Divisi</span>
-                        <h4 className="text-sm md:text-base font-semibold">{userData.Biodata?.Office?.name}</h4>
+                        <span className="text-xs md:text-sm font-light">NIP</span>
+                        <h4 className="text-sm md:text-base font-semibold">{userData.nip}</h4>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="text-xs md:text-sm font-light">Eselon</span>
-                        <h4 className="text-sm md:text-base font-semibold">{userData.Biodata?.Echelon?.title}</h4>
+                    <div className="flex w-full flex-row gap-5">
+                        <div className="flex flex-col flex-1">
+                            <span className="text-xs md:text-sm font-light">Office</span>
+                            <h4 className="text-sm md:text-base font-semibold">{userData.Biodata?.Office?.name}</h4>
+                        </div>
+                        <div className="flex flex-col flex-1">
+                            <span className="text-xs md:text-sm font-light">Jabatan</span>
+                            <h4 className="text-sm md:text-base font-semibold">{userData.Positions?.map((pos) => pos.title).join(", ")}</h4>
+                        </div>
                     </div>
                 </div>
             </div>
