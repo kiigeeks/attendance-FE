@@ -15,9 +15,9 @@ const CardAbsent = () => {
                     <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Sakit
                     </div>
-                    {/* <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
+                    <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Lembur
-                    </div> */}
+                    </div>
                     <div className='rounded-xl px-3 py-1 border-[2px] border-grayPrimary'>
                         Luar Kota
                     </div>
