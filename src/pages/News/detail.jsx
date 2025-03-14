@@ -50,10 +50,10 @@ const DetailNews = () => {
                         <span className="italic text-right font-light text-xxs md:text-xs text-gray-400">
                             <ReactTimeAgo date={Date.parse(data?.createdAt)} locale="id-ID" />
                         </span>
-                        <h3 className="text-sm md:text-base font-medium">
+                        <h3 className="text-lg font-medium">
                             {data.title}
                         </h3>
-                        <div className="mt-3 text-xxs md:text-xs text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
+                        <div className="mt-3 text-sm text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
                 </div>
 
