@@ -89,7 +89,7 @@ const News = () => {
                                                 {data.title}
                                             </h3>
                                             <div className="text-xxs md:text-xs text-gray-400 line-clamp-2" dangerouslySetInnerHTML={{ __html: data.description }} />
-                                            <span className="mt-auto italic text-right font-thin text-xxs md:text-xs text-gray-400">
+                                            <span className="mt-auto italic text-right font-light text-xxs md:text-xs text-gray-400">
                                                 <ReactTimeAgo date={Date.parse(data.published_at)} locale="id-ID" />
                                             </span>
                                         </div>

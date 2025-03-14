@@ -53,7 +53,7 @@ const DetailNews = () => {
                         <h3 className="text-sm md:text-base font-medium">
                             {data.title}
                         </h3>
-                        <div className="mt-3 text-xxs md:text-xs font-thin text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
+                        <div className="mt-3 text-xxs md:text-xs text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
                 </div>
 
