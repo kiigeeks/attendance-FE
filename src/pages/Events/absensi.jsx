@@ -13,19 +13,8 @@ const AbsensiEvent = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [nip, setNip] = useState("")
     const currentDate = new Date();
-    const [location, setLocation] = useState({ latitude: null, longitude: null });
-
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                setLocation({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                });
-            },
-            (error) => console.log(error)
-        );
         fetchNews()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,8 +52,6 @@ const AbsensiEvent = () => {
         });
     }
 
-    console.log("loc", location);
-
     const handleAbsensi = async (e) => {
         e.preventDefault();
         setIsReady(false)
@@ -95,7 +82,7 @@ const AbsensiEvent = () => {
                     (<section className='flex justify-center items-center flex-col py-10 w-screen'>
                         <h1 className='font-bold text-3xl tracking-wider text-center'>Absensi Event Binar</h1>
                         <div className='flex flex-col justify-center items-center gap-5 mt-10'>
-                            <div className="bg-gray-300 flex-initial w-11/12 md:w-full max-w-11/12 h-52 rounded-md flex justify-center items-center">
+                            <div className="bg-gray-300 flex-initial w-11/12 md:w-72 max-w-11/12 rounded-md flex justify-center items-center">
                                 {data.thumbnail
                                     ?
                                         <img src={`${import.meta.env.VITE_API_PUBLIC_FOLDER_IMAGES}/${data.thumbnail}`} alt="news" className="w-full h-full object-cover rounded-md" />
