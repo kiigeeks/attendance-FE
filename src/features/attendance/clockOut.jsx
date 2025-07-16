@@ -22,6 +22,7 @@ const ClockOutModal = () => {
     const [lat, setLat] = useState("");
     const [lng, setLng] = useState("");
     const [markerPosition, setMarkerPosition] = useState([lat, lng]);
+    const [note, setNote] = useState('');
 
     useEffect(() => {
         const updateTime = () => {
@@ -143,6 +144,7 @@ const ClockOutModal = () => {
         reqData.append("clock_out", `${hours}:${minutes}:${seconds}`);
         reqData.append("meta_out", markerPosition);
         reqData.append("location_out", location);
+        reqData.append("note_out", note);
 
         if (lat === "" || lng === "" || location === "Lokasi tidak ditemukan") {
             toast.error("Mohon coba refresh lagi", {
@@ -189,6 +191,16 @@ const ClockOutModal = () => {
                     </div>
                     <form onSubmit={handleClockOut} className='flex flex-col gap-7 justify-center items-center'>
                         <h3 className='font-poppins font-medium text-base tracking-wide'>Apakah Anda yakin?</h3>
+
+                        <div className="mb-5 w-11/12">
+                            <div className="w-full font-poppins text-sm">
+                                <label htmlFor="note" className="">Keterangan <small className='italic text-xs'>(Opsional)</small></label>
+                                <input type="text" id="note" name='note'
+                                        onChange={(e) =>setNote(e.target.value)}
+                                        className="mt-1 block w-full border-2 rounded-lg p-2 text-xs md:text-sm text-gray-500"
+                                        value={note} />
+                            </div>
+                        </div>
                         <div className='flex flex-row gap-3 justify-center items-center w-full'>
                             <button
                                 onClick={() => dispatch(hiddenClockOut())}

@@ -10,6 +10,15 @@ const CardAttendance = () => {
     const statusAttendanceDetail = useSelector(statusAttendance);
     const timeInDetail = useSelector(timeIn);
     const timeOutDetail = useSelector(timeOut);
+
+    const isToday = (dateString) => {
+        const date = new Date(dateString);
+        const now = new Date();
+
+        return date.getFullYear() === now.getFullYear() &&
+                date.getMonth() === now.getMonth() &&
+                date.getDate() === now.getDate();
+    }
     
 	const dispatch = useDispatch();
 
@@ -38,7 +47,7 @@ const CardAttendance = () => {
                     {statusAttendanceDetail
                         ?
                             <>
-                            {statusAttendanceDetail === "IN"
+                            {statusAttendanceDetail === "IN" && isToday(timeInDetail)
                                 ?
                                     <div onClick={(e) => handleClockOut(e)} className='rounded-3xl px-5 py-2 border-2 border-redPrimary flex justify-center items-center gap-2 w-fit cursor-pointer'>
                                         <span className='text-redPrimary font-poppins text-sm'>Clock Out</span>

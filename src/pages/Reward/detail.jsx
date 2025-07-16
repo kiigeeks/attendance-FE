@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import NewsIcon from '../../assets/icons/News.svg'
 import { getDetailReward, redeemReward } from '../../utilities/sendRequest';
 import Spinner from '../../components/Loader/Spinner';
+import { dateIndo } from '../../utilities/helpers';
 
 const DetailReward = () => {
     const params = useParams()
@@ -73,8 +74,9 @@ const DetailReward = () => {
                                     <h5 className="font-medium text-xs md:text-sm">Berlaku Sampai</h5>
                                 </div>
                                 <div className="w-[45%] flex flex-initial flex-col">
-                                    <span className="font-extralight text-xxs md:text-sm text-left">{data.point} point</span>
-                                    <span className="font-extralight text-xxs md:text-sm text-left">21 Februari 2024</span>
+                                    <span className="font-light text-xxs md:text-sm text-left">{data.point} point</span>
+                                    {/* <span className="font-light text-xxs md:text-sm text-left">21 Februari 2024</span> */}
+                                    <span className="font-light text-xxs md:text-sm text-left">{dateIndo(data.expired_at)}</span>
                                 </div>
                             </div>
                             <hr className="my-1 w-11/12 self-center" />
@@ -82,7 +84,7 @@ const DetailReward = () => {
                                 <h3 className="text-xs md:text-sm font-medium">
                                     Deskripsi
                                 </h3>
-                                <div className="mt-3 text-xxs md:text-xs font-thin text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
+                                <div className="mt-3 text-xxs md:text-xs font-light text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
                             </div>
                             <div className="mt-5 w-full flex flex-col gap-2 tracking-wider py-3 px-8">
                                 <button

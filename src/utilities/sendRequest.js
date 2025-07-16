@@ -140,6 +140,7 @@ export const getOvertimes = async (lastID, limit, type) => {
 export const createAbsent = async (reqData) => {
     const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL_SERVER}/absences`, reqData, {
         headers:{
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`
         }
     })
@@ -167,6 +168,8 @@ export const clockInAttendance = async (reqData) => {
 }
 
 export const clockOutAttendance = async (paramsNIP, reqData) => {
+    console.log('hit');
+    
     const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URL_SERVER}/attendances/${paramsNIP}`, reqData, {
         headers:{
             Authorization: `Bearer ${token}`
