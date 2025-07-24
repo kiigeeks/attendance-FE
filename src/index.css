@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    @apply bg-whitePrimary font-poppins flex justify-center;
+    @apply bg-whitePrimary font-poppins flex justify-center text-blackPrimary;
 }
 
 .shadow-navigation {

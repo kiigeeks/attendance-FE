@@ -217,12 +217,25 @@ const AttendanceModal = () => {
                                         value={note} />
                             </div>
                         </div>
-                        <button type='submit'
-                                disabled={!isReady}
-                                className={`flex flex-row justify-center items-center gap-2 w-full ${isReady ? 'bg-bluePrimary text-white cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full py-3`}>
-                            <span>Check In</span>
-                            <MdLogin className='w-5 h-5'/>
-                        </button>
+                        {lat === "" || lng === "" || location === "Lokasi tidak ditemukan"
+                            ? <span className='text-sm italic font-light text-red-500'>*Lokasi Anda tidak terdeteksi oleh sistem, silahkan klik buton Check My Location</span>
+                            : ""
+                        }
+                        {lat === "" || lng === "" || location === "Lokasi tidak ditemukan"
+                                ?
+                                    <button
+                                        onClick={fetchMyLocation}
+                                        className={`flex flex-row justify-center items-center gap-2 w-fit bg-greenPrimary text-white cursor-pointer font-poppins text-xs rounded-full px-8 py-2`}>
+                                        <span>Check My Location</span>
+                                    </button>
+                                :
+                                    <button type='submit'
+                                            disabled={!isReady}
+                                            className={`flex flex-row justify-center items-center gap-2 w-full ${isReady ? 'bg-bluePrimary text-white cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full py-3`}>
+                                        <span>Check In</span>
+                                        <MdLogin className='w-5 h-5'/>
+                                    </button>
+                        }
 
                         <div onClick={handleNavigation} className='text-sm italic font-poppins font-medium underline underline-offset-2 text-bluePrimary tracking-wider cursor-pointer'>
                             Information

@@ -38,6 +38,7 @@ import { createTimeStamp } from './utilities/helpers';
 import ClockOutModal from './features/attendance/clockOut';
 import Informations from './pages/Informations';
 import ConnectionModal from './features/connection/connection';
+import DetailEducations from './pages/Education/detail';
 
 function App() {
 	const dispatch = useDispatch();
@@ -133,6 +134,7 @@ function App() {
 								<Route path="/rewards" element={<Reward />} />
 								<Route path="/rewards/:id" element={<DetailReward />} />
 								<Route path="/educations" element={<Educations />} />
+								<Route path="/educations/:slug" element={<DetailEducations />} />
 								<Route path="/profile" element={<Profile />} />
 								<Route path="/absents" element={<Absents />} />
 								<Route path="/attendances" element={<Attendances />} />

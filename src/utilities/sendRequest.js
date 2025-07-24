@@ -17,6 +17,70 @@ export const getBiodata = async (paramsNip) => {
     return data;
 }
 
+// educations
+export const getEducations = async (lastID, limit, key) => {
+    const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL_SERVER}/educations/scroll?lastID=${lastID}&limit=${limit}&key=${key}`, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const getEducation = async (paramsSlug) => {
+    const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL_SERVER}/educations/${paramsSlug}`, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const createRequestEducation = async (reqData) => {
+    const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL_SERVER}/education_requests`, reqData, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const joinEducation = async (reqData) => {
+    const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL_SERVER}/user_educations`, reqData, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const getComments = async (lastID, limit, paramsId, link) => {
+    const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL_SERVER}/${link}=${paramsId}&lastID=${lastID}&limit=${limit}`, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const createComment = async (reqData, link) => {
+    const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL_SERVER}/${link}`, reqData, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
+export const deleteComment = async (paramsId, link) => {
+    const { data } = await axios.delete(`${import.meta.env.VITE_API_BASE_URL_SERVER}/${link}/${paramsId}`, {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data;
+}
+
 // news
 export const getNews = async (keyword, lastID, limit) => {
     const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL_SERVER}/posts/scroll?key=${keyword}&lastID=${lastID}&limit=${limit}`, {
@@ -168,8 +232,6 @@ export const clockInAttendance = async (reqData) => {
 }
 
 export const clockOutAttendance = async (paramsNIP, reqData) => {
-    console.log('hit');
-    
     const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URL_SERVER}/attendances/${paramsNIP}`, reqData, {
         headers:{
             Authorization: `Bearer ${token}`

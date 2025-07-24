@@ -1,16 +1,16 @@
 
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import ReactTimeAgo from 'react-time-ago'
 import NewsIcon from '../../assets/icons/News.svg'
 import { getDetailNews } from '../../utilities/sendRequest';
 import Spinner from '../../components/Loader/Spinner';
 import Sliders from '../../components/Sliders/Sliders';
+import Comments from '../../components/Comments';
 
 const DetailNews = () => {
     const params = useParams()
-    const navigate = useNavigate()
     const [data, setData] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -55,30 +55,26 @@ const DetailNews = () => {
                         </h3>
                         <div className="mt-3 text-sm text-justify flex flex-col gap-3" dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
+
+                    {data.Event ?
+                        <a
+                            href={data.Event.url}
+                            target='_blank'
+                            rel="noopener noreferrer"
+                            className="h-fit my-3 py-1.5 w-11/12 self-center flex justify-center items-center text-white text-sm font-semibold uppercase tracking-wider bg-bluePrimary rounded-3xl"
+                        >
+                            Join Zoom
+                        </a>
+                        : ""
+                    }
                 </div>
 
-                {data.Post_Galleries ?
-                    <Sliders datas={data.Post_Galleries} />
-                    : ""
-                }
-                
-                {data.Event ?
-                    <a
-                        href={data.Event.url}
-                        target='_blank'
-                        rel="noopener noreferrer"
-                        className="h-10 flex justify-center items-center text-white text-xs md:text-sm font-semibold uppercase tracking-wider bg-bluePrimary rounded-3xl"
-                    >
-                        Join Zoom
-                    </a>
+                {data.Post_Galleries
+                    ? <Sliders datas={data.Post_Galleries} />
                     : ""
                 }
 
-                <button onClick={() => navigate("/news")}
-                    className="h-10 flex justify-center items-center text-white text-xs md:text-sm font-semibold uppercase tracking-wider bg-redPrimary rounded-3xl"
-                >
-                    Kembali
-                </button>
+                <Comments paramsId={data?.id} apiFetch={'post_comments/scroll?post_id'} apiDelete={'post_comments'} apiCreate={'post_comments'}/>
                 
             </section>
                 :

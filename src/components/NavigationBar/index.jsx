@@ -10,7 +10,7 @@ const NavigationBar = () => {
             <div className="flex justify-between items-center w-4/5">
                 <div className="flex flex-col items-center gap-1 relative">
                     <Link to={"/educations"} className="w-8 h-8 cursor-pointer">
-                        <IoBookSharp className={`w-full h-full ${location.pathname.includes("educations") ? 'text-yellowSecondary' : 'text-grayPrimary'}`} />
+                        <IoBookSharp className={`w-full h-full ${location.pathname.includes("/educations") ? 'text-yellowSecondary' : 'text-grayPrimary'}`} />
                     </Link>
                 </div>
                 <div className="flex flex-col items-center gap-1 relative">
