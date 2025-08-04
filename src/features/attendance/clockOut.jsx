@@ -189,6 +189,12 @@ const ClockOutModal = () => {
                     </div>
                     <form onSubmit={handleClockOut} className='flex flex-col gap-7 justify-center items-center'>
                         <h3 className='font-poppins font-medium text-base tracking-wide'>Apakah Anda yakin?</h3>
+
+                        {lat === "" || lng === "" || location === "Lokasi tidak ditemukan"
+                            ? <span className='text-sm italic font-light text-red-500'>*Lokasi Anda tidak terdeteksi oleh sistem, silahkan klik buton Check My Location</span>
+                            : ""
+                        }
+                        
                         <div className='flex flex-row gap-3 justify-center items-center w-full'>
                             <button
                                 onClick={() => dispatch(hiddenClockOut())}
