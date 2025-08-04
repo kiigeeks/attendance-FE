@@ -206,7 +206,7 @@ const ClockOutModal = () => {
                                     <button
                                         onClick={fetchMyLocation}
                                         className={`flex flex-row justify-center items-center gap-2 w-fit bg-greenPrimary text-white cursor-pointer font-poppins text-xs rounded-full px-8 py-2`}>
-                                        <span>Check My Location</span>
+                                        <span>Cek Lokasi Saya</span>
                                     </button>
                                 :
                                     <button type='submit'
