@@ -141,11 +141,12 @@ const ClockOutModal = () => {
         const seconds = String(today.getSeconds()).padStart(2, '0');
 
         const reqData = new FormData();
+        reqData.append("date_out", formattedDate);
         reqData.append("clock_out", `${hours}:${minutes}:${seconds}`);
         reqData.append("meta_out", markerPosition);
         reqData.append("location_out", location);
         reqData.append("note_out", note);
-
+        
         if (lat === "" || lng === "" || location === "Lokasi tidak ditemukan") {
             toast.error("Mohon coba refresh lagi", {
                 position: "top-right",
@@ -190,7 +191,7 @@ const ClockOutModal = () => {
                         </div>
                     </div>
                     <form onSubmit={handleClockOut} className='flex flex-col gap-7 justify-center items-center'>
-                        <h3 className='font-poppins font-medium text-base tracking-wide'>Apakah Anda yakin?</h3>
+                        <h3 className='font-poppins font-medium text-base tracking-wide px-2 text-center'>Apakah Anda ingin Absen Pulang?</h3>
 
                         <div className="mb-5 w-11/12">
                             <div className="w-full font-poppins text-sm">
@@ -205,7 +206,7 @@ const ClockOutModal = () => {
                             ? <span className='text-sm italic font-light text-red-500'>*Lokasi Anda tidak terdeteksi oleh sistem, silahkan klik buton Check My Location</span>
                             : ""
                         }
-                        <div className='flex flex-row gap-3 justify-center items-center w-full'>
+                        <div className='flex flex-col gap-3 justify-center items-center w-full'>
                             <button
                                 onClick={() => dispatch(hiddenClockOut())}
                                 className={`flex flex-row justify-center items-center gap-2 w-fit bg-redPrimary text-white cursor-pointer font-poppins text-xs rounded-full px-8 py-2`}>
@@ -222,7 +223,7 @@ const ClockOutModal = () => {
                                     <button type='submit'
                                             disabled={!isReady}
                                             className={`flex flex-row justify-center items-center gap-2 w-fit ${isReady ? 'border border-redPrimary text-redPrimary cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full px-5 py-2`}>
-                                        <span>Check Out</span>
+                                        <span>Absen Pulang</span>
                                         <MdLogout className='w-5 h-5'/>
                                     </button>
                             }

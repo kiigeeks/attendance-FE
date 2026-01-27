@@ -94,6 +94,23 @@ export const getStatusRewards = (status) => {
     }
 }
 
+export const normalizeDateTimeFromDB = (dateFromDB) => {
+    const dateObj = new Date(dateFromDB);
+
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObj.getDate()).padStart(2, "0");
+
+    const hours = String(dateObj.getHours()).padStart(2, "0");
+    const minutes = String(dateObj.getMinutes()).padStart(2, "0");
+    const seconds = String(dateObj.getSeconds()).padStart(2, "0");
+
+    return {
+        date: `${year}-${month}-${day}`,
+        time: `${hours}:${minutes}:${seconds}`
+    };
+};
+
 export const createTimeStamp = (inputDate, inputTime) => {
     // Pisahkan nilai tanggal dan waktu
     const [year, month, day] = inputDate.split('-'); // Pisahkan tahun, bulan, dan hari
@@ -142,6 +159,12 @@ export const checkHireDate = (hireDate, isPermanent) => {
     return false;
 }
 
+export const buildDateTime = (baseDate, timeString) => {
+    const [h, m] = timeString.split(":").map(Number);
+    const d = new Date(baseDate);
+    d.setHours(h, m, 0, 0);
+    return d;
+};
 
 
 let navigateInstance = null;

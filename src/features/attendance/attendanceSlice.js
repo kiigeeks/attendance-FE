@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     timeIn: "", 
     timeOut: "", 
+    shift: "", 
     statusAttendance: "",
     isShowAttendance: false,
     isShowClockOut: false,
@@ -49,7 +50,10 @@ export const attendanceSlice = createSlice({
             state.isShowAttendance = false;
         },
         setClockIn: (state, action) => {
-            state.timeIn = action.payload;
+            const { timestamp, shift } = action.payload;
+
+            state.timeIn = timestamp;
+            state.shift = shift;
             state.statusAttendance = "IN";
         },
         setClockOut: (state, action) => {
@@ -65,6 +69,7 @@ export const attendanceSlice = createSlice({
         resetAttendance: (state) => {
             state.timeIn = null;
             state.timeOut = null;
+            state.shift = null;
             state.statusAttendance = null;
             state.isShowAttendance = false;
         },
@@ -77,6 +82,7 @@ export default attendanceSlice.reducer;
 // selector
 export const timeIn = state => state.attendance.timeIn
 export const timeOut = state => state.attendance.timeOut
+export const shift = state => state.attendance.shift
 export const statusAttendance = state => state.attendance.statusAttendance
 export const isShowAttendance = state => state.attendance.isShowAttendance
 export const statusOvertime = state => state.attendance.statusOvertime

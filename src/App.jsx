@@ -34,7 +34,7 @@ import Permissions from './pages/Absents/permissions';
 import BusinessTrips from './pages/Absents/trips';
 import { isShowAbsent, isShowAttendance, isShowClockOut, isShowOvertime, setClockIn, setClockOut } from './features/attendance/attendanceSlice';
 import Attendances from './pages/Absents/attendances';
-import { createTimeStamp } from './utilities/helpers';
+import { createTimeStamp, normalizeDateTimeFromDB } from './utilities/helpers';
 import ClockOutModal from './features/attendance/clockOut';
 import Informations from './pages/Informations';
 import ConnectionModal from './features/connection/connection';
@@ -79,15 +79,18 @@ function App() {
 	const fetchBiodata = async (nip) => {
         getBiodata(nip).then((res) => {
 			const data = res.payload
-			
+
 			dispatch(storeData(data))
 			
 			if(data.Attendances.length > 0) {
 				if(data.Attendances[0].clock_in) {
-					dispatch(setClockIn(createTimeStamp(data.Attendances[0].date, data.Attendances[0].clock_in)))
+					dispatch(setClockIn({
+						timestamp: createTimeStamp(data.Attendances[0].date, data.Attendances[0].clock_in),
+						shift: data?.Biodata.Shift
+					}))
 				}
 				if(data.Attendances[0].clock_out) {
-					dispatch(setClockOut(createTimeStamp(data.Attendances[0].date, data.Attendances[0].clock_out)))
+					dispatch(setClockOut(createTimeStamp(data.Attendances[0].date_out, data.Attendances[0].clock_out)))
 				}
 			}
         }).catch(() => {

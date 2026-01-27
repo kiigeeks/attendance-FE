@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { toast } from 'react-toastify';
 import Modal from '../../components/Modal'
 import { hiddenAttendace, setClockIn } from './attendanceSlice'
@@ -8,11 +8,13 @@ import { MdAccessTime } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
 import { createTimeStamp, dateIndoNow, navigateTo } from '../../utilities/helpers';
 import { clockInAttendance, getDetailLocation } from '../../utilities/sendRequest';
+import { selectUserData } from '../user/userSlice';
 
 
 const AttendanceModal = () => {
     const clickRef = useRef(null)
 	const dispatch = useDispatch();
+    const userData = useSelector(selectUserData);
     const [time, setTime] = useState('');
     const [status, setStatus] = useState('WFO');
     const [location, setLocation] = useState('Lokasi tidak ditemukan');
@@ -164,7 +166,13 @@ const AttendanceModal = () => {
                 autoClose: 3000
             });
             
-            dispatch(setClockIn(createTimeStamp(formattedDate, `${hours}:${minutes}:${seconds}`)))
+            dispatch(setClockIn({
+                        timestamp: createTimeStamp(
+                            formattedDate,
+                            `${hours}:${minutes}:${seconds}`
+                        ),
+                        shift: userData.Biodata.Shift
+                    }))
             dispatch(hiddenAttendace())
         }).catch((error) => {
             toast.error(error.response.data.message, {
@@ -232,11 +240,10 @@ const AttendanceModal = () => {
                                     <button type='submit'
                                             disabled={!isReady}
                                             className={`flex flex-row justify-center items-center gap-2 w-full ${isReady ? 'bg-bluePrimary text-white cursor-pointer' : 'text-gray-800 bg-gray-300 cursor-wait'} font-poppins text-xs rounded-full py-3`}>
-                                        <span>Check In</span>
+                                        <span>Absen Masuk</span>
                                         <MdLogin className='w-5 h-5'/>
                                     </button>
                         }
-
                         <div onClick={handleNavigation} className='text-sm italic font-poppins font-medium underline underline-offset-2 text-bluePrimary tracking-wider cursor-pointer'>
                             Information
                         </div>
